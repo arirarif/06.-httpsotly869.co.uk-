@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTLY 869 | Signature Disco Tee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "on-primary": "#ffffff",
+            "secondary": "#5f5e5e",
+            "surface": "#fbf9f2",
+            "surface-container-low": "#f6f4ec",
+            "surface-container": "#f0eee7",
+            "surface-container-high": "#eae8e1",
+            "surface-container-highest": "#e4e2dc",
+            "on-surface": "#1b1c18",
+            "on-surface-variant": "#4c4546",
+            "outline-variant": "#cfc4c5",
+            "tertiary": "#d9d7d0"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #fbf9f2; color: #1b1c18; }
+    .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+
+    /* Gallery thumbnails */
+    .thumb { cursor: pointer; }
+    .thumb.is-active { outline: 2px solid #000; outline-offset: 2px; }
+
+    /* Size buttons */
+    .size-btn { transition: all 150ms ease; cursor: pointer; }
+    .size-btn.is-active { background: #000; color: #fff; border-color: #000; }
+
+    /* Colour swatches */
+    .colour-swatch { transition: all 150ms ease; cursor: pointer; }
+    .colour-swatch.is-active { outline: 2px solid #000; outline-offset: 3px; }
+
+    /* Tabs */
+    .tab-btn { cursor: pointer; transition: color 150ms ease, border-color 150ms ease; border-bottom: 2px solid transparent; }
+    .tab-btn.is-active { color: #000; border-bottom-color: #000; }
+    .tab-panel { display: none; }
+    .tab-panel.is-active { display: block; }
+
+    /* Accordion chevron rotation */
+    details[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 200ms ease; display: inline-block; }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+
+    /* Desktop sticky summary */
+    @media (min-width: 1024px) {
+      .summary-sticky { position: sticky; top: 104px; }
+    }
+
+    /* Hide scrollbar */
+    .no-scroll::-webkit-scrollbar { display: none; }
+    .no-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Subtle gallery zoom hint */
+    .zoom-hint { opacity: 0; transition: opacity 200ms ease; }
+    .gallery-wrap:hover .zoom-hint { opacity: 1; }
+
+    /* Main image swap */
+    #mainImg { transition: opacity 200ms ease; }
+
+    /* Mobile bottom bar blur */
+    .mobile-bar { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+
+    /* Image error fallback */
+    img { background: #f0eee7; }
+
+    /* Related product hover */
+    .product-card img { transition: transform 600ms ease; }
+    .product-card:hover img { transform: scale(1.04); }
+
+    /* Qty button */
+    .qty-btn { cursor: pointer; transition: color 150ms ease; }
+    .qty-btn:hover { color: #000; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── ANNOUNCEMENT BAR ───────────────────────────────────────────── -->
+  <div class="bg-primary text-white text-center py-2 px-4 text-[9px] font-label uppercase tracking-[0.2em]">
+    Free UK Shipping on Orders Over £75 &nbsp;·&nbsp; Made to Order — Reduces Overproduction
+  </div>
+
+  <!-- ─── NAVIGATION ────────────────────────────────────────────────── -->
+  <header class="bg-surface border-b border-outline-variant/30 sticky top-0 z-50">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="font-headline text-2xl font-bold tracking-tighter text-primary leading-none">OTLY 869</a>
+
+      <!-- Nav links (desktop) -->
+      <nav class="hidden md:flex items-center gap-8 font-headline text-sm tracking-tight">
+        <a href="#" class="text-primary border-b-2 border-primary pb-0.5">Shop</a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors duration-200">Collections</a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors duration-200">Archive</a>
+        <a href="#" class="text-secondary hover:text-primary transition-colors duration-200">About</a>
+      </nav>
+
+      <!-- Action icons -->
+      <div class="flex items-center gap-5 text-primary">
+        <!-- Search bar (desktop only) -->
+        <div class="hidden lg:flex items-center gap-2 bg-surface-container-high border border-outline-variant/40 px-4 py-2 cursor-pointer">
+          <span class="material-symbols-outlined text-secondary" style="font-size:16px">search</span>
+          <span class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary">Search</span>
+        </div>
+        <span class="material-symbols-outlined cursor-pointer hover:opacity-60 transition-opacity" style="font-size:22px">person</span>
+        <span class="material-symbols-outlined cursor-pointer hover:opacity-60 transition-opacity" style="font-size:22px">favorite</span>
+        <div class="relative">
+          <span class="material-symbols-outlined cursor-pointer hover:opacity-60 transition-opacity" style="font-size:22px">shopping_bag</span>
+          <span class="absolute -top-1.5 -right-1.5 bg-primary text-white text-[8px] w-4 h-4 flex items-center justify-center rounded-full font-bold leading-none">2</span>
+        </div>
+        <!-- Mobile burger -->
+        <span class="material-symbols-outlined cursor-pointer md:hidden" style="font-size:22px">menu</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ─── MAIN ──────────────────────────────────────────────────────── -->
+  <main class="max-w-[1440px] mx-auto px-6 md:px-10 pt-8 pb-36 md:pb-16">
+
+    <!-- Breadcrumb -->
+    <nav class="flex flex-wrap items-center gap-2 mb-10 text-[9px] font-label uppercase tracking-[0.2em] text-secondary">
+      <a href="#" class="hover:text-primary transition-colors">Home</a>
+      <span class="text-outline-variant">/</span>
+      <a href="#" class="hover:text-primary transition-colors">Shop</a>
+      <span class="text-outline-variant">/</span>
+      <a href="#" class="hover:text-primary transition-colors">T-Shirts</a>
+      <span class="text-outline-variant">/</span>
+      <span class="text-primary font-bold">Signature Disco Tee</span>
+    </nav>
+
+    <!-- ─── PRODUCT TOP SECTION ──────────────────────────────────────── -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20">
+
+      <!-- LEFT: Gallery ─────────────────────────────────── -->
+      <div class="lg:col-span-7">
+
+        <!-- MOBILE: Full-width hero image (hidden on desktop) -->
+        <div class="lg:hidden w-full aspect-[4/5] bg-surface-container-low overflow-hidden mb-4">
+          <img id="mainImgMobile"
+            src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-front-69af085c9ac99.jpg"
+            alt="OTLY 869 Signature Disco Tee — Black Front"
+            class="w-full h-full object-cover"
+            onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuA4s5lRWU-_QtzLKa2PWWCEjlczGIxDjAQfdN2EDeSoXfv_0dU4mriel7U4YvYQLlJAvZcjazekSwb5lwvdAE7IWRemGuRxvkOcUn6Mtbxxy7PJOI8gZ7LnwC_q-gWIspfI0Mcu8xDtnI17EM3gs2yBOia8YbeBOZzPExbaYDneqhkxGPaVJI-3rY5PFJvLTMqq5gRyiMSXbYmKn_6N5iyhJLOZ9tQFBtHzm_sZ-C1zhrwVSg_Xr2DhygbZ-aRTqfJDUIwzfpP3g_k'"/>
+        </div>
+
+        <!-- MOBILE: Horizontal thumbnail strip -->
+        <div class="lg:hidden flex gap-2 overflow-x-auto no-scroll mb-0 -mx-6 px-6">
+          <div class="thumb flex-shrink-0 w-[72px] h-[90px] bg-surface-container-low overflow-hidden is-active" data-idx="0">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-front-69af085c9ac99.jpg" alt="" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDElSVFVoeu6Syk9nMRmi6cdw84IXpryK4SeP6-Ic5U_ryjg4aHqCLV7PzVO8kOifgWrjSHsAnrW79GyvrtCvm3hClzhS3oZleIWM_yx9Qv4_eade9DzNvzF8_-yOt_wtcVHQgkpxgQQvn0KqTAVB53-C8t9RCjhXxEQ4tb3j_UknXWQQbl7Ublqm6Jmkg43S_q9PgGKddx4CSGKOieAMJbdZjAaMSCpg-1Hq3iruxreenZkjxVbxAQWNLVH50KG79QJdHuI6GL7u4'" />
+          </div>
+          <div class="thumb flex-shrink-0 w-[72px] h-[90px] bg-surface-container-low overflow-hidden" data-idx="1">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-left-69af085c9d3f0.jpg" alt="" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAx0KzaVY4JuTnDps0p07AZjtyYJ1if4GBguy6o19es3AtRkvrxNZ-k47ojFVp8LXHwwOUuyilNsJCxxgP6fLKdRqQ6WtiFfVGyFsIa54RJMWVjoihrpnfOTbTCASioDvxRK7h0tJDnig644hK8QpBA7FHacKLbOQL_vdktSEvWJfFnIswe7AllzSJmgy83C0H-EHxDuQ6-qd2AGYQZZAqi1rV3cDgFLf17mzOcmQXFIwAXxRwbMngTvjhoJRgawQc6FqhwU9lQznw'" />
+          </div>
+          <div class="thumb flex-shrink-0 w-[72px] h-[90px] bg-surface-container-low overflow-hidden" data-idx="2">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-navy-front-69af085c9c842.jpg" alt="" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBLTNyDZjZzbJVvzz_s-R2ZLUcaEDx67dLWQC1H29wuNNAAAHMrbYG4_FG2ZqaAagXnz325DYfdvEetw5B18mm_nbypxv47JHx4sSNsY4hW6mIgmOyp-EV4nwr4SKksXyg4NlC-V8ZRdBGYdfn69xCZaZxqS0HplEKaWrGmp_uY4u5SDSdX0K_NClFZa7OowK4eOV2IkoPyhVMvPrJqq_5siGWlIU5IWjsHEUBbomudlF1IaTdVG38Ind31s1YhU4pjQbryxUWAuHc'" />
+          </div>
+          <div class="thumb flex-shrink-0 w-[72px] h-[90px] bg-surface-container-low overflow-hidden" data-idx="3">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-dark-chocolate-front-69af085c9bae7.jpg" alt="" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAhmIbj2-f080I2UyviZ3Vas3b6xUnnUf3RN2PJVWRj57uBX-0Qks3FGHqcMGzaA7PcEATyXxyow_qd_l3Bbo5el-1V_93uxW2mj2y1gmBZZtCm5qn3LbgyGbetFZzZUSf4PALftfHONi1JWrKxl2TyizMCcje9S1HzrkFDN2Lws1CacoiLJMJ6YVqAujcUZKTUqcmh7kO7w-dG6mIpI2Z8hhxTWZVNkRpKvDewJ5S--j7tbhgrw5XZb8xU4Fzs3L9KFeAFP12rp90'" />
+          </div>
+          <div class="thumb flex-shrink-0 w-[72px] h-[90px] bg-surface-container-low overflow-hidden" data-idx="4">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-military-green-front-69af085c9c1ee.jpg" alt="" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuB63NoHGZ7y5r4baP5bmR6hPbRz1theYceUcBCxsdWF7sYKFd4LJ4VR0A4K1lOUhnDmqFUsNCa-0dM44T3xopT13raFjJYXkAnVGS1caDUAldtww5OUZLCa7kClvOSMQXdEcLfXCFURXTQxx9GAKGPO5ntx8ukAbOAw2Hp03xt-9gtxSmy6hWU7SGMB83TEX4zyLbPErh4NF1yxG19y1EnkfB0BH6MPHuwIOaC0JD2tM-KX_PkLVzkueaCyGbciVwLPtRok2Sb6TP8'" />
+          </div>
+        </div>
+
+        <!-- DESKTOP: Side-by-side (vertical thumbs + large main image) -->
+        <div class="hidden lg:flex gap-5">
+          <!-- Vertical thumbnail strip -->
+          <div class="flex flex-col gap-3 w-[88px] xl:w-24 shrink-0">
+            <div class="thumb aspect-[3/4] bg-surface-container-low overflow-hidden is-active" data-idx="0">
+              <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-front-69af085c9ac99.jpg" alt="Black — Front" class="w-full h-full object-cover"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDElSVFVoeu6Syk9nMRmi6cdw84IXpryK4SeP6-Ic5U_ryjg4aHqCLV7PzVO8kOifgWrjSHsAnrW79GyvrtCvm3hClzhS3oZleIWM_yx9Qv4_eade9DzNvzF8_-yOt_wtcVHQgkpxgQQvn0KqTAVB53-C8t9RCjhXxEQ4tb3j_UknXWQQbl7Ublqm6Jmkg43S_q9PgGKddx4CSGKOieAMJbdZjAaMSCpg-1Hq3iruxreenZkjxVbxAQWNLVH50KG79QJdHuI6GL7u4'" />
+            </div>
+            <div class="thumb aspect-[3/4] bg-surface-container-low overflow-hidden border border-transparent hover:border-outline-variant transition-all" data-idx="1">
+              <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-left-69af085c9d3f0.jpg" alt="Black — Left" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAx0KzaVY4JuTnDps0p07AZjtyYJ1if4GBguy6o19es3AtRkvrxNZ-k47ojFVp8LXHwwOUuyilNsJCxxgP6fLKdRqQ6WtiFfVGyFsIa54RJMWVjoihrpnfOTbTCASioDvxRK7h0tJDnig644hK8QpBA7FHacKLbOQL_vdktSEvWJfFnIswe7AllzSJmgy83C0H-EHxDuQ6-qd2AGYQZZAqi1rV3cDgFLf17mzOcmQXFIwAXxRwbMngTvjhoJRgawQc6FqhwU9lQznw'" />
+            </div>
+            <div class="thumb aspect-[3/4] bg-surface-container-low overflow-hidden border border-transparent hover:border-outline-variant transition-all" data-idx="2">
+              <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-navy-front-69af085c9c842.jpg" alt="Navy — Front" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBLTNyDZjZzbJVvzz_s-R2ZLUcaEDx67dLWQC1H29wuNNAAAHMrbYG4_FG2ZqaAagXnz325DYfdvEetw5B18mm_nbypxv47JHx4sSNsY4hW6mIgmOyp-EV4nwr4SKksXyg4NlC-V8ZRdBGYdfn69xCZaZxqS0HplEKaWrGmp_uY4u5SDSdX0K_NClFZa7OowK4eOV2IkoPyhVMvPrJqq_5siGWlIU5IWjsHEUBbomudlF1IaTdVG38Ind31s1YhU4pjQbryxUWAuHc'" />
+            </div>
+            <div class="thumb aspect-[3/4] bg-surface-container-low overflow-hidden border border-transparent hover:border-outline-variant transition-all" data-idx="3">
+              <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-dark-chocolate-front-69af085c9bae7.jpg" alt="Dark Chocolate — Front" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuAhmIbj2-f080I2UyviZ3Vas3b6xUnnUf3RN2PJVWRj57uBX-0Qks3FGHqcMGzaA7PcEATyXxyow_qd_l3Bbo5el-1V_93uxW2mj2y1gmBZZtCm5qn3LbgyGbetFZzZUSf4PALftfHONi1JWrKxl2TyizMCcje9S1HzrkFDN2Lws1CacoiLJMJ6YVqAujcUZKTUqcmh7kO7w-dG6mIpI2Z8hhxTWZVNkRpKvDewJ5S--j7tbhgrw5XZb8xU4Fzs3L9KFeAFP12rp90'" />
+            </div>
+            <div class="thumb aspect-[3/4] bg-surface-container-low overflow-hidden border border-transparent hover:border-outline-variant transition-all" data-idx="4">
+              <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-military-green-front-69af085c9c1ee.jpg" alt="Military Green — Front" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuB63NoHGZ7y5r4baP5bmR6hPbRz1theYceUcBCxsdWF7sYKFd4LJ4VR0A4K1lOUhnDmqFUsNCa-0dM44T3xopT13raFjJYXkAnVGS1caDUAldtww5OUZLCa7kClvOSMQXdEcLfXCFURXTQxx9GAKGPO5ntx8ukAbOAw2Hp03xt-9gtxSmy6hWU7SGMB83TEX4zyLbPErh4NF1yxG19y1EnkfB0BH6MPHuwIOaC0JD2tM-KX_PkLVzkueaCyGbciVwLPtRok2Sb6TP8'" />
+            </div>
+          </div>
+
+          <!-- Large main image -->
+          <div class="gallery-wrap relative flex-1 bg-surface-container-low overflow-hidden cursor-zoom-in group">
+            <img id="mainImg"
+              src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-front-69af085c9ac99.jpg"
+              alt="OTLY 869 Signature Disco Tee"
+              class="w-full h-full object-cover aspect-[3/4]"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuA4s5lRWU-_QtzLKa2PWWCEjlczGIxDjAQfdN2EDeSoXfv_0dU4mriel7U4YvYQLlJAvZcjazekSwb5lwvdAE7IWRemGuRxvkOcUn6Mtbxxy7PJOI8gZ7LnwC_q-gWIspfI0Mcu8xDtnI17EM3gs2yBOia8YbeBOZzPExbaYDneqhkxGPaVJI-3rY5PFJvLTMqq5gRyiMSXbYmKn_6N5iyhJLOZ9tQFBtHzm_sZ-C1zhrwVSg_Xr2DhygbZ-aRTqfJDUIwzfpP3g_k'" />
+            <!-- Zoom hint -->
+            <div class="zoom-hint absolute bottom-5 right-5 bg-white/70 backdrop-blur-sm px-3 py-2 flex items-center gap-1.5 pointer-events-none">
+              <span class="material-symbols-outlined text-primary" style="font-size:15px">zoom_in</span>
+              <span class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary">Enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- /LEFT gallery -->
+
+      <!-- RIGHT: Product Summary ─────────────────────────────────────── -->
+      <div class="lg:col-span-5">
+        <div class="summary-sticky">
+
+          <!-- Title + price -->
+          <div class="mb-8">
+            <h1 class="font-headline text-[2.5rem] xl:text-[3rem] font-bold tracking-tighter leading-none text-primary mb-3">
+              Signature Disco Tee
+            </h1>
+            <p class="font-headline text-2xl text-on-surface-variant">£29.99</p>
+          </div>
+
+          <!-- Short description -->
+          <p class="text-secondary text-sm leading-relaxed mb-10 max-w-sm">
+            A tribute to the golden era of dance culture. Premium softstyle cotton, made to order — designed for enduring structure and softened with every wear.
+          </p>
+
+          <!-- ─ Colour swatches ─ -->
+          <div class="mb-8">
+            <span class="block text-[9px] font-label font-bold uppercase tracking-[0.2em] text-primary mb-3">
+              Colour: <span id="colourLabel">Black</span>
+            </span>
+            <div class="flex gap-3">
+              <button class="colour-swatch is-active w-9 h-9 rounded-full bg-[#1b1b1b]" data-colour="Black" title="Black"></button>
+              <button class="colour-swatch w-9 h-9 rounded-full bg-[#1e2a44]" data-colour="Navy" title="Navy"></button>
+              <button class="colour-swatch w-9 h-9 rounded-full bg-[#3b2a1e]" data-colour="Dark Chocolate" title="Dark Chocolate"></button>
+              <button class="colour-swatch w-9 h-9 rounded-full bg-[#4a5240]" data-colour="Military Green" title="Military Green"></button>
+            </div>
+          </div>
+
+          <!-- ─ Size selector ─ -->
+          <div class="mb-10">
+            <div class="flex justify-between items-center mb-3">
+              <span class="text-[9px] font-label font-bold uppercase tracking-[0.2em] text-primary">Select Size</span>
+              <a href="#" class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary underline underline-offset-4 hover:text-primary transition-colors">Size Guide</a>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button class="size-btn w-12 h-12 border border-outline-variant text-secondary text-[11px] font-bold hover:border-primary hover:text-primary">XS</button>
+              <button class="size-btn w-12 h-12 border border-outline-variant text-secondary text-[11px] font-bold hover:border-primary hover:text-primary">S</button>
+              <button class="size-btn is-active w-12 h-12 border text-[11px] font-bold">M</button>
+              <button class="size-btn w-12 h-12 border border-outline-variant text-secondary text-[11px] font-bold hover:border-primary hover:text-primary">L</button>
+              <button class="size-btn w-12 h-12 border border-outline-variant text-secondary text-[11px] font-bold hover:border-primary hover:text-primary">XL</button>
+            </div>
+          </div>
+
+          <!-- ─ CTA row ─ -->
+          <div class="flex items-stretch gap-3 mb-5">
+            <!-- Quantity -->
+            <div class="flex items-center bg-surface-container-high border border-outline-variant/40 min-w-[104px] justify-between px-3 select-none">
+              <span class="qty-btn material-symbols-outlined text-secondary" style="font-size:16px">remove</span>
+              <span id="qtyVal" class="font-headline font-bold text-sm">1</span>
+              <span class="qty-btn material-symbols-outlined text-secondary" style="font-size:16px">add</span>
+            </div>
+            <!-- Add to basket -->
+            <button class="flex-1 bg-primary text-white font-headline font-bold uppercase tracking-[0.15em] text-sm py-4 hover:bg-[#1b1b1b] active:scale-[0.99] transition-all">
+              Add to Basket
+            </button>
+          </div>
+
+          <!-- Wishlist -->
+          <button class="flex items-center gap-2 text-secondary hover:text-primary transition-colors text-[9px] uppercase font-bold tracking-[0.2em] mb-10 group">
+            <span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-size:18px">favorite</span>
+            Save to Wishlist
+          </button>
+
+          <!-- ─ Trust badges ─ -->
+          <div class="space-y-4 py-8 border-t border-outline-variant/25">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary" style="font-size:18px">eco</span>
+              <span class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary">Made to order — reduces overproduction</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary" style="font-size:18px">local_shipping</span>
+              <span class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary">Free UK shipping on orders over £75</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary" style="font-size:18px">verified_user</span>
+              <span class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary">Secure checkout via Stripe</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary" style="font-size:18px">undo</span>
+              <span class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary">30-day returns</span>
+            </div>
+          </div>
+
+          <!-- ─ Meta ─ -->
+          <div class="text-[9px] font-label uppercase tracking-[0.15em] text-secondary/60 space-y-1 pt-2">
+            <p>SKU: OTL-DISCO-001</p>
+            <p>Category: <a href="#" class="hover:text-primary underline underline-offset-2">T-Shirts</a></p>
+            <div class="flex items-center gap-3 pt-2">
+              <span>Share:</span>
+              <a href="#" aria-label="Share" class="hover:text-primary transition-colors">
+                <span class="material-symbols-outlined" style="font-size:15px">share</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /RIGHT summary -->
+
+    </div><!-- /product top section -->
+
+
+    <!-- ─── DETAILS TABS / ACCORDION ────────────────────────────────── -->
+    <section class="mt-28">
+
+      <!-- Desktop: Tab bar (hidden on mobile) -->
+      <div class="hidden md:flex border-b border-outline-variant/25 mb-12 overflow-x-auto no-scroll gap-0">
+        <button class="tab-btn is-active px-10 py-5 text-[9px] font-label font-bold uppercase tracking-[0.2em] whitespace-nowrap" data-tab="description">Description</button>
+        <button class="tab-btn px-10 py-5 text-[9px] font-label font-bold uppercase tracking-[0.2em] text-secondary whitespace-nowrap" data-tab="info">Additional Info</button>
+        <button class="tab-btn px-10 py-5 text-[9px] font-label font-bold uppercase tracking-[0.2em] text-secondary whitespace-nowrap" data-tab="shipping">Shipping &amp; Returns</button>
+        <button class="tab-btn px-10 py-5 text-[9px] font-label font-bold uppercase tracking-[0.2em] text-secondary whitespace-nowrap" data-tab="reviews">Reviews (0)</button>
+      </div>
+
+      <!-- Tab panels (desktop) -->
+      <div class="hidden md:block">
+        <div class="tab-panel is-active" id="panel-description">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div class="space-y-5 text-secondary text-sm leading-relaxed">
+              <p>The <strong class="text-primary font-semibold">Signature Disco Tee</strong> is a tribute to the golden era of nightlife — the rhythm, the energy, and the culture that defined dance floors around the world. From New York's underground clubs to global stages, disco wasn't just a sound. It was a feeling.</p>
+              <p>Crafted on premium softstyle cotton, this is a piece designed to move with you — structured in build, soft in feel, built to last through every wash and wear.</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2.5 text-secondary"><span class="material-symbols-outlined text-tertiary" style="font-size:15px">check_circle</span> Premium softstyle cotton — everyday comfort</li>
+                <li class="flex items-center gap-2.5 text-secondary"><span class="material-symbols-outlined text-tertiary" style="font-size:15px">check_circle</span> Durable double-needle stitching</li>
+                <li class="flex items-center gap-2.5 text-secondary"><span class="material-symbols-outlined text-tertiary" style="font-size:15px">check_circle</span> Unisex regular fit — true to size</li>
+                <li class="flex items-center gap-2.5 text-secondary"><span class="material-symbols-outlined text-tertiary" style="font-size:15px">check_circle</span> Signature OTLY sleeve branding</li>
+                <li class="flex items-center gap-2.5 text-secondary"><span class="material-symbols-outlined text-tertiary" style="font-size:15px">check_circle</span> Made to order — reducing overproduction</li>
+              </ul>
+              <p class="text-[10px] font-label uppercase tracking-[0.2em] font-bold text-primary pt-2">OTLY 869 — Wear Your Resolve.</p>
+            </div>
+            <div class="bg-surface-container-low p-12">
+              <h4 class="font-headline font-bold text-[9px] tracking-[0.2em] uppercase mb-6 text-primary">Product Specs</h4>
+              <ul class="space-y-4 text-[10px] font-label tracking-wide text-secondary uppercase">
+                <li class="flex justify-between border-b border-outline-variant/25 pb-3"><span>Fabric</span><span>100% Ring-spun Cotton</span></li>
+                <li class="flex justify-between border-b border-outline-variant/25 pb-3"><span>Weight</span><span>4.5 oz/yd² (153 g/m²)</span></li>
+                <li class="flex justify-between border-b border-outline-variant/25 pb-3"><span>Fit</span><span>Unisex Regular</span></li>
+                <li class="flex justify-between border-b border-outline-variant/25 pb-3"><span>Sizes</span><span>XS — XL</span></li>
+                <li class="flex justify-between border-b border-outline-variant/25 pb-3"><span>Colours</span><span>4 options</span></li>
+                <li class="flex justify-between pb-3"><span>Production</span><span>Made to Order</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-info">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div class="space-y-4 text-secondary text-sm leading-relaxed">
+              <p>100% ring-spun cotton. Shoulder-to-shoulder taping. Quarter-turned to eliminate crease down the centre.</p>
+              <p><em>Disclaimer: Due to fabric properties and dye lots, slight colour variation may occur between production runs. This is intentional and adds to the character of the garment.</em></p>
+            </div>
+            <div class="bg-surface-container-low p-12">
+              <h4 class="font-headline font-bold text-[9px] tracking-[0.2em] uppercase mb-6 text-primary">Size Chart</h4>
+              <table class="w-full text-[10px] font-label text-secondary uppercase tracking-wide">
+                <thead>
+                  <tr class="border-b border-outline-variant/25">
+                    <th class="text-left pb-3">Size</th>
+                    <th class="text-left pb-3">Chest (in)</th>
+                    <th class="text-left pb-3">Length (in)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/15">
+                  <tr><td class="py-3">XS</td><td class="py-3">34–36</td><td class="py-3">27</td></tr>
+                  <tr><td class="py-3">S</td><td class="py-3">36–38</td><td class="py-3">28</td></tr>
+                  <tr><td class="py-3 font-semibold text-primary">M</td><td class="py-3">38–40</td><td class="py-3">29</td></tr>
+                  <tr><td class="py-3">L</td><td class="py-3">40–42</td><td class="py-3">30</td></tr>
+                  <tr><td class="py-3">XL</td><td class="py-3">42–44</td><td class="py-3">31</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-shipping">
+          <div class="max-w-2xl space-y-8 text-secondary text-sm leading-relaxed">
+            <div>
+              <h4 class="font-headline font-bold text-[9px] tracking-[0.2em] uppercase mb-3 text-primary">Shipping</h4>
+              <p>As all items are made to order, please allow <strong class="text-primary font-medium">3–7 business days</strong> for production before dispatch. UK standard delivery is typically 3–5 working days after dispatch. Free UK shipping on orders over £75.</p>
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-[9px] tracking-[0.2em] uppercase mb-3 text-primary">Returns</h4>
+              <p>Unsatisfied? Return within <strong class="text-primary font-medium">30 days</strong> of delivery. Items must be unworn, unaltered, and in original packaging. Please note that made-to-order items may be subject to a return handling fee. See the full <a href="#" class="underline underline-offset-2 hover:text-primary transition-colors">Returns Policy</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-reviews">
+          <div class="max-w-md">
+            <p class="text-secondary text-sm mb-8">There are no reviews yet. Be the first to review this product.</p>
+            <button class="bg-primary text-white font-headline font-bold uppercase tracking-[0.15em] text-xs py-4 px-8 hover:bg-[#1b1b1b] transition-colors">Write a Review</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile: Accordion (hidden on desktop) -->
+      <div class="md:hidden divide-y divide-outline-variant/25 mt-8">
+        <details open>
+          <summary class="flex justify-between items-center cursor-pointer py-5">
+            <span class="font-headline font-bold text-base">Description</span>
+            <span class="material-symbols-outlined chevron text-secondary" style="font-size:22px">expand_more</span>
+          </summary>
+          <div class="pb-8 text-secondary text-sm leading-relaxed space-y-4">
+            <p>The <strong class="text-primary font-semibold">Signature Disco Tee</strong> is a tribute to the golden era of dance culture — premium softstyle cotton, made to order.</p>
+            <ul class="space-y-2">
+              <li>• Premium softstyle cotton</li>
+              <li>• Double-needle stitching</li>
+              <li>• Unisex regular fit</li>
+              <li>• Signature OTLY sleeve branding</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary class="flex justify-between items-center cursor-pointer py-5">
+            <span class="font-headline font-bold text-base">Additional Information</span>
+            <span class="material-symbols-outlined chevron text-secondary" style="font-size:22px">expand_more</span>
+          </summary>
+          <div class="pb-8 text-secondary text-sm leading-relaxed">
+            <p>100% ring-spun cotton. Shoulder-to-shoulder taping. Quarter-turned to eliminate crease down the centre.</p>
+          </div>
+        </details>
+        <details>
+          <summary class="flex justify-between items-center cursor-pointer py-5">
+            <span class="font-headline font-bold text-base">Shipping &amp; Returns</span>
+            <span class="material-symbols-outlined chevron text-secondary" style="font-size:22px">expand_more</span>
+          </summary>
+          <div class="pb-8 text-secondary text-sm leading-relaxed">
+            <p>3–7 business days production time. Free UK shipping over £75. Returns accepted within 30 days of delivery.</p>
+          </div>
+        </details>
+        <details>
+          <summary class="flex justify-between items-center cursor-pointer py-5">
+            <span class="font-headline font-bold text-base">Reviews (0)</span>
+            <span class="material-symbols-outlined chevron text-secondary" style="font-size:22px">expand_more</span>
+          </summary>
+          <div class="pb-8 text-secondary text-sm">
+            <p>No reviews yet. Be the first.</p>
+          </div>
+        </details>
+      </div>
+
+    </section><!-- /tabs section -->
+
+
+    <!-- ─── RELATED PRODUCTS ─────────────────────────────────────────── -->
+    <section class="mt-28">
+      <h3 class="font-headline text-3xl font-bold tracking-tighter text-primary mb-12">You may also like</h3>
+
+      <!-- Desktop: grid  |  Mobile: horizontal scroll -->
+      <div class="flex gap-6 overflow-x-auto no-scroll md:grid md:grid-cols-4 md:gap-8 md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0">
+
+        <!-- Card 1 -->
+        <a href="#" class="product-card group flex-shrink-0 w-56 md:w-auto cursor-pointer">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-navy-front-69af085c9c842.jpg" alt="R&B Heritage Tee" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuA5AUkmaFs5O6ChP_Wyx1dkDLwJF_IIzmJfta-tGjWEc0Fbk5WWwwVRPCfq7_LHBxA5V-BIqGj9DugW4nKPAL93rgPprUGZX0eAQhzm0omDqVLDZHhqw8Sme_y9CWr3tPNf0d7PMIN1v_Nghb8N25cSNll7K8HjAHHjIQyfTAlKv1JeYWODmiKbJX7d0u3y0ueDCd-rEaUM-xmCKzR91NEyCnpkT1hZ-DbMiSPcCtayyyXe9DgznhpN85RNQh-Msej666iaLb5AYsg'" />
+          </div>
+          <h4 class="font-headline font-bold text-sm text-primary mb-1">R&amp;B Heritage Tee</h4>
+          <p class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary font-bold">£29.00</p>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="#" class="product-card group flex-shrink-0 w-56 md:w-auto cursor-pointer">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/classic-dad-hat-black-front-69ac9f4146264.jpg" alt="Dad Hat" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDoSBDI4Dp-kC1o0-124F5cFInIGmWp4X5KxpieKc4mapsbd9cHOCvHFpdrJjGRp7BwQpsXP3qMuLmMWOB4L4nBI6o6Z6tD4ZWdfTWKYf3JW5XSyW5OYrH9AwIU70dvwIGvAT0e_R4OEZRNhgl1qo1ldN4CHjaRnlRVe6XRkojBVrileoE-jzS1Z6oZq5rrrhkx48PV95iA_gXZ6HIA98rtIb7tDx4Xs2mc5h2sqEctHwHUNteLwu5DzaobqSTIhrGy_p5S5vdWkBk'" />
+          </div>
+          <h4 class="font-headline font-bold text-sm text-primary mb-1">Dad Hat</h4>
+          <p class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary font-bold">£20.00</p>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="#" class="product-card group flex-shrink-0 w-56 md:w-auto cursor-pointer">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-military-green-front-69af085c9c1ee.jpg" alt="Buried in Doubt Tee" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBvaL3C2RSTyoTTrZMODtAxrJzW9DIkNNVORKRLMuu4Yho8amM5z7_BhEugbCPUGO6OherrnpfREJjfT5erwGPNp8GbfNhyFhsxUfVoXxh_rWyWHAJ5hb3WnVrCm50C1nKn2XU-wa40L8f5fQR3mcw3JLn_T_3tOgRfafST8Y1AvPiqEBPc9jyeMjPmzm-e8NpVq_F9p6hLYvq6j7ON-KKwXTZ0itv4sLNr-p9GZB6fdGo8Y-3odTng811NRBOzYjY'" />
+          </div>
+          <h4 class="font-headline font-bold text-sm text-primary mb-1">Buried in Doubt Tee</h4>
+          <p class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary font-bold">£29.99</p>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="#" class="product-card group flex-shrink-0 w-56 md:w-auto cursor-pointer">
+          <div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+            <img src="https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-white-front-69ac5012b07bd.jpg" alt="Heritage 869 T-Shirt" class="w-full h-full object-cover"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDlU1zJhm71AgLjm_XUStRZ2gcMBUzFRBDh6_Y96USLY9XGNNpsfp4s6wghaoukwdtXXwhki5f9GIpd-QD_74mXRNTSBFQh_onbH3Lp0wCbhtXqcZpecSXTbn-FkkFI63ngRI09vRuv7icinni4CP9Er-K6mpYooq6QY2I5vDL0gICT5R9R2OSZbjwUbHv1PLklqNQmC6CJHO9TCPhqU7nmmSly5urtICtX-ESVrvMMS0unUAvt9wiFmU5JKk3jffCMxgvd9wU2v-c'" />
+          </div>
+          <h4 class="font-headline font-bold text-sm text-primary mb-1">Heritage 869 T-Shirt</h4>
+          <p class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary font-bold">from £29.99</p>
+        </a>
+
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="bg-surface-container-low border-t border-outline-variant/25">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-10 py-14 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <span class="font-headline text-xl font-bold tracking-tighter text-primary block mb-5">OTLY 869</span>
+        <p class="text-secondary text-sm leading-relaxed max-w-xs mb-6">Affirmation-led apparel inspired by heritage, resilience, and the rhythm of identity.</p>
+        <div class="flex gap-5 text-secondary">
+          <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" style="font-size:20px">public</span>
+          <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors" style="font-size:20px">alternate_email</span>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-headline font-bold text-[9px] uppercase tracking-[0.2em] mb-5 text-primary">Links</h5>
+        <ul class="space-y-3 text-[9px] font-label uppercase tracking-[0.15em] text-secondary">
+          <li><a href="#" class="hover:text-primary hover:underline underline-offset-4 transition-colors">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="hover:text-primary hover:underline underline-offset-4 transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-primary hover:underline underline-offset-4 transition-colors">Returns Policy</a></li>
+          <li><a href="#" class="hover:text-primary hover:underline underline-offset-4 transition-colors">Shipping Policy</a></li>
+          <li><a href="#" class="hover:text-primary hover:underline underline-offset-4 transition-colors">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-headline font-bold text-[9px] uppercase tracking-[0.2em] mb-5 text-primary">Get in Touch</h5>
+        <ul class="space-y-3 text-[9px] font-label tracking-wide text-secondary">
+          <li><a href="tel:07909667085" class="hover:text-primary transition-colors">07909 667 085</a></li>
+          <li><a href="mailto:customer@otly869.co.uk" class="hover:text-primary transition-colors">customer@otly869.co.uk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-outline-variant/20 px-6 md:px-10 py-4">
+      <p class="text-[9px] font-label uppercase tracking-[0.2em] text-secondary text-center">© 2026 OTLY 869. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ─── MOBILE FLOATING ACTION BAR ──────────────────────────────── -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 mobile-bar bg-surface/90 border-t border-outline-variant/30">
+    <div class="flex items-center gap-4 px-5 py-4">
+      <div class="flex flex-col">
+        <span class="text-[8px] font-label uppercase tracking-[0.2em] text-secondary leading-none mb-1">Total</span>
+        <span class="font-headline font-bold text-lg leading-none">£29.99</span>
+      </div>
+      <button class="flex-1 bg-primary text-white font-headline font-bold uppercase tracking-[0.15em] text-sm py-4 hover:bg-[#1b1b1b] active:scale-[0.99] transition-all">
+        Add to Basket
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ─── JAVASCRIPT ────────────────────────────────────────────────── -->
+  <script>
+    const imageSrcs = [
+      'https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-front-69af085c9ac99.jpg',
+      'https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-black-left-69af085c9d3f0.jpg',
+      'https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-navy-front-69af085c9c842.jpg',
+      'https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-dark-chocolate-front-69af085c9bae7.jpg',
+      'https://otly869.co.uk/wp-content/uploads/2026/03/unisex-basic-softstyle-t-shirt-military-green-front-69af085c9c1ee.jpg',
+    ];
+
+    // ── Gallery switching ──────────────────────────────────────────
+    const mainImg = document.getElementById('mainImg');
+    const mainImgMobile = document.getElementById('mainImgMobile');
+
+    document.querySelectorAll('.thumb').forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const idx = parseInt(thumb.dataset.idx, 10);
+
+        // Update active state on all thumbs with same idx
+        document.querySelectorAll('.thumb').forEach(t => {
+          t.classList.toggle('is-active', parseInt(t.dataset.idx, 10) === idx);
+        });
+
+        // Swap main images
+        if (mainImg) { mainImg.src = imageSrcs[idx]; }
+        if (mainImgMobile) { mainImgMobile.src = imageSrcs[idx]; }
+      });
+    });
+
+    // ── Size selector ─────────────────────────────────────────────
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => {
+          b.classList.remove('is-active');
+          b.classList.add('border-outline-variant', 'text-secondary');
+        });
+        btn.classList.add('is-active');
+        btn.classList.remove('border-outline-variant', 'text-secondary');
+      });
+    });
+
+    // ── Colour selector ──────────────────────────────────────────
+    const colourLabel = document.getElementById('colourLabel');
+    document.querySelectorAll('.colour-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        document.querySelectorAll('.colour-swatch').forEach(s => s.classList.remove('is-active'));
+        sw.classList.add('is-active');
+        if (colourLabel) colourLabel.textContent = sw.dataset.colour;
+      });
+    });
+
+    // ── Quantity ─────────────────────────────────────────────────
+    let qty = 1;
+    const qtyVal = document.getElementById('qtyVal');
+    document.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const delta = btn.textContent.trim() === 'remove' ? -1 : 1;
+        qty = Math.max(1, qty + delta);
+        if (qtyVal) qtyVal.textContent = qty;
+      });
+    });
+
+    // ── Desktop tabs ─────────────────────────────────────────────
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update tab button states
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('is-active');
+          b.classList.add('text-secondary');
+        });
+        btn.classList.add('is-active');
+        btn.classList.remove('text-secondary');
+
+        // Show correct panel
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('is-active'));
+        const panel = document.getElementById('panel-' + btn.dataset.tab);
+        if (panel) panel.classList.add('is-active');
+      });
+    });
+  </script>
+
+</body>
+</html>
